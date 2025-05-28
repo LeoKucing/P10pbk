@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+
 import Home from '../components/costumer/Home.vue'
 import Menu from '../components/costumer/Menu.vue'
 import Cart from '../components/costumer/Cart.vue'
