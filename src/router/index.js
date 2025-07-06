@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { useAuthStore } from '../stores/authStore'
 import Home from '../components/costumer/Home.vue'
 import Menu from '../components/costumer/Menu.vue'
 import Cart from '../components/costumer/Cart.vue'
@@ -10,11 +11,12 @@ import ManageOrders from '../components/admin/ManageOrders.vue'
 import Reports from '../components/admin/Reports.vue'
 
 const routes = [
-  { path: '/', name: 'Home', component: Home },
+  { path: '/', redirect: '/login' },  // default redirect ke login
+  { path: '/login', name: 'Login', component: Login },
+  { path: '/home', name: 'Home', component: Home },
   { path: '/menu', name: 'Menu', component: Menu },
   { path: '/cart', name: 'Cart', component: Cart },
   { path: '/history', name: 'History', component: History },
-  { path: '/login', name: 'Login', component: Login },
   {
     path: '/admin',
     name: 'AdminDashboard',
@@ -23,13 +25,24 @@ const routes = [
       { path: 'menu', name: 'ManageMenu', component: ManageMenu },
       { path: 'orders', name: 'ManageOrders', component: ManageOrders },
       { path: 'reports', name: 'Reports', component: Reports },
-    ],
+    ]
   },
 ]
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
+})
+
+// navigation guard cek login
+router.beforeEach((to, from, next) => {
+  const auth = useAuthStore()
+
+  if (to.path !== '/login' && !auth.isLoggedIn) {
+    next('/login')
+  } else {
+    next()
+  }
 })
 
 export default router
