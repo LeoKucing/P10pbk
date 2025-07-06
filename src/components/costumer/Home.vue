@@ -60,5 +60,5 @@ function estimasiHarga(nama) {
   return '-'
 }
 
-
+onMounted(() => ambilOrders())
 </script>
