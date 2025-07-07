@@ -20,7 +20,7 @@ const password = ref('')
 const pesan = ref('')
 
 function login() {
-    fetch('http://localhost:3000/users')
+    fetch('https://leokucing.github.io/api/db.json')
         .then(res => res.json())
         .then(users => {
         const user = users.find(u => u.username === username.value && u.password === password.value)
