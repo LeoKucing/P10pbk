@@ -20,7 +20,7 @@ const password = ref('')
 const pesan = ref('')
 
 function login() {
-    fetch('https://api.example.com/data/db.json')
+    fetch('http://localhost:3000/users')
         .then(res => res.json())
         .then(users => {
         const user = users.find(u => u.username === username.value && u.password === password.value)

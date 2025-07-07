@@ -27,7 +27,7 @@ function tambahMenu() {
 }
 
 function ambilMenu() {
-    fetch('http://localhost:3000/menus')
+    fetch('https://api.example.com/data/menus')
         .then(res => res.json())
         .then(data => menus.value = data)
 }
