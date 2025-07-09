@@ -19,7 +19,7 @@ const nama = ref('')
 const harga = ref('')
 
 function tambahMenu() {
-    fetch('http://localhost:3000/menus', {
+    fetch('https://api-kopikuy-1.onrender.com/api/menus', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nama: nama.value, harga: parseInt(harga.value) })
@@ -27,7 +27,7 @@ function tambahMenu() {
 }
 
 function ambilMenu() {
-    fetch('https://api.example.com/data/menus')
+    fetch('https://api-kopikuy-1.onrender.com/api/menus')
         .then(res => res.json())
         .then(data => menus.value = data)
 }

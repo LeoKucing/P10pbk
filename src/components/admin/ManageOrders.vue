@@ -25,7 +25,7 @@ const orders = ref([])
 
 // Ambil pesanan yang selesai
 function ambilOrders() {
-  fetch('http://localhost:3000/orders')
+  fetch('https://api-kopikuy-1.onrender.com/api/orders')
     .then(res => res.json())
     .then(data => {
       orders.value = data.filter(o => o.selesai)

@@ -20,7 +20,7 @@ const password = ref('')
 const pesan = ref('')
 
 function login() {
-    fetch('https://api-kopikuy-1.onrender.com/users')
+    fetch('https://api-kopikuy-1.onrender.com/api/users')
         .then(res => res.json())
         .then(users => {
         const user = users.find(u => u.username === username.value && u.password === password.value)

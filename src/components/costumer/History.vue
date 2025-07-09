@@ -25,19 +25,19 @@ import { ref, onMounted } from 'vue'
 const orders = ref([])
 
 function ambilOrders() {
-  fetch('http://localhost:3000/orders')
+  fetch('https://api-kopikuy-1.onrender.com/api/orders')
     .then(res => res.json())
     .then(data => orders.value = data)
 }
 
 function batalkanPesanan(id) {
-  fetch(`http://localhost:3000/orders/${id}`, {
+  fetch(`https://api-kopikuy-1.onrender.com/api/orders/${id}`, {
     method: 'DELETE'
   }).then(() => ambilOrders())
 }
 
 function tandaiSelesai(id) {
-  fetch(`http://localhost:3000/orders/${id}`, {
+  fetch(`https://api-kopikuy-1.onrender.com/api/orders/${id}`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ selesai: true })
@@ -45,7 +45,7 @@ function tandaiSelesai(id) {
 }
 
 function batalkanSelesai(id) {
-  fetch(`http://localhost:3000/orders/${id}`, {
+  fetch(`https://api-kopikuy-1.onrender.com/api/orders/${id}`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ selesai: false })

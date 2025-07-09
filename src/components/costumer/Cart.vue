@@ -43,7 +43,7 @@ function submitOrder() {
     jenis: item.jenis
   }))
 
-  fetch('http://localhost:3000/orders', {
+  fetch('https://api-kopikuy-1.onrender.com/api/orders', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({

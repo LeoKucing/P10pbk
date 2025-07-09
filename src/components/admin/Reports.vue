@@ -31,13 +31,13 @@ const editId = ref(null)
 const editPesan = ref('')
 
 function ambilReports() {
-  fetch('http://localhost:3000/reports')
+  fetch('https://api-kopikuy-1.onrender.com/api/reports')
     .then(res => res.json())
     .then(data => reports.value = data)
 }
 
 function tandaiSelesai(id) {
-  fetch(`http://localhost:3000/reports/${id}`, {
+  fetch(`https://api-kopikuy-1.onrender.com/api/reports/${id}`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ selesai: true })
@@ -45,7 +45,7 @@ function tandaiSelesai(id) {
 }
 
 function hapusLaporan(id) {
-  fetch(`http://localhost:3000/reports/${id}`, {
+  fetch(`https://api-kopikuy-1.onrender.com/api/reports/${id}`, {
     method: 'DELETE'
   }).then(() => ambilReports())
 }
@@ -56,7 +56,7 @@ function mulaiEdit(laporan) {
 }
 
 function simpanEdit(id) {
-  fetch(`http://localhost:3000/reports/${id}`, {
+  fetch(`https://api-kopikuy-1.onrender.com/api/reports/${id}`, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ pesan: editPesan.value })

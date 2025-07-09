@@ -36,7 +36,7 @@
     }
 
     onMounted(() => {
-    fetch('http://localhost:3000/menus')
+    fetch('https://api-kopikuy-1.onrender.com/api/menus')
         .then(res => res.json())
         .then(data => menus.value = data)
 })
